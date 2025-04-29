@@ -1,6 +1,5 @@
 package com.github.acnaweb.study_apiw.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,42 +13,39 @@ import com.github.acnaweb.study_apiw.repository.ProdutoRepository;
 
 @Service
 public class ProdutoService {
+
     @Autowired
     private ProdutoRepository produtoRepository;
 
-    public Optional<Produto> update(Long id, ProdutoRequestUpdate dto){
+    public Optional<Produto> update(Long id, ProdutoRequestUpdate dto) {
         return produtoRepository.findById(id)
-        .map(produto ->{
-            produto.setNome(dto.getNome());
-            return produtoRepository.save(produto);
-        });
-
-        if(produtoRepository.existsById(id){
-            Produto produto = produtoRepository.findById(id).get();
-            produto.setNome(dto.getNome());
-            produtoRepository.save(produto);
-        })
-        return null;
+            .map(produto -> {
+                produto.setNome(dto.getNome());
+                return produtoRepository.save(produto);
+            });
     }
 
-    public Produto save(ProdutoRequestCreate dto){    
+    public Produto save(ProdutoRequestCreate dto) {     
         
-        Produto produto = new Produto();
-
+        Produto produto  = new Produto();
         produto.setNome(dto.getNome());
-        return produtoRepository.save(produto); 
+        
+        return produtoRepository.save(produto);
     }
 
-    public List<Produto> findAll(){
+    public List<Produto> findAll() {
         return produtoRepository.findAll();
     }
 
-    public Produto findById(Long id){
-        Optional<Produto> opt = produtoRepository.findById(id);
+    public Optional<Produto> findById(Long id) {
+        return  produtoRepository.findById(id);
+    }
 
-        if(opt.isPresent()){
-            return opt.get();
+    public boolean delete(Long id) {
+        if (produtoRepository.existsById(id)) {
+            produtoRepository.deleteById(id);
+            return true;
         }
-        return null;
+        return false;
     }
 }
