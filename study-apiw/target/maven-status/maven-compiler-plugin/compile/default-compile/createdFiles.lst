@@ -1,0 +1,11 @@
+com\github\acnaweb\study_apiw\model\Produto.class
+com\github\acnaweb\study_apiw\repository\ProdutoRepository.class
+com\github\acnaweb\study_apiw\controller\ControllerPing.class
+com\github\acnaweb\study_apiw\StudyApiwApplication.class
+com\github\acnaweb\study_apiw\controller\ControllerProduto.class
+com\github\acnaweb\study_apiw\dto\ProdutoRequestCreate.class
+com\github\acnaweb\study_apiw\dto\ProdutoResponse.class
+com\github\acnaweb\study_apiw\model\Pedido.class
+com\github\acnaweb\study_apiw\dto\ProdutoRequestUpdate.class
+com\github\acnaweb\study_apiw\model\Item.class
+com\github\acnaweb\study_apiw\service\ProdutoService.class
